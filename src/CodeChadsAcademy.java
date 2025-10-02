@@ -113,6 +113,36 @@ public class CodeChadsAcademy {
             System.out.printf("Stone Chad definitivo, su total es: %d%n", total);
         }
 
+//        6. (Desafío final) Ranking entre varios alumnos
+//        Simulá una clase con 4 estudiantes, cada uno con sus 5 notas. Mostrá:
+//        Qué estudiante obtuvo el promedio más alto
+//        Cuál fue el más regular (menor desviación entre notas).
+//                Quién tuvo el peor rendimiento en la tercera prueba.
+        System.out.println("=====================================================================");
+        int[][] notasAlumnos = {
+                {90, 70, 90, 70, 95},   // Alumno 1
+                {80, 85, 90, 75, 80},   // Alumno 2
+                {100, 95, 90, 85, 100}, // Alumno 3
+                {60, 65, 70, 60, 55}    // Alumno 4
+        };
+
+        for (int i = 0; i < notasAlumnos.length; i++) {
+            int totalNotas = 0;
+            System.out.printf("Alumno %d%n",(i+1));
+            for (int j = 0; j < notasAlumnos[i].length; j++) {
+                totalNotas+= notasAlumnos[i][j];
+                System.out.print(notasAlumnos[i][j]+" ");
+            }
+            int promedio = totalNotas/5;
+            System.out.printf("TOTAL: %d PROMEDIO: %d%n",totalNotas, promedio);
+        }
+
+
+
+
+
+
+
     }
 
 
