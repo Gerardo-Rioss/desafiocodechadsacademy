@@ -125,17 +125,42 @@ public class CodeChadsAcademy {
                 {100, 95, 90, 85, 100}, // Alumno 3
                 {60, 65, 70, 60, 55}    // Alumno 4
         };
-
+        //Para guardar los promedios
+        double [] promedios = new double[4];
+        //Para guardar las desviacion de cada alumno
+        double [] desviaciones = new double[4];
+        //para guardar la nota de la tercer prueba de cada alumno
+        int [] rendimientoTercerPrueba = new int[4];
+        //Recorre la nota de todos los alumnos
         for (int i = 0; i < notasAlumnos.length; i++) {
-            int totalNotas = 0;
-            System.out.printf("Alumno %d%n",(i+1));
+            System.out.printf("ALUMNO %d%n", (i + 1));
+            //inicializamos acumulador para la suma total de notas de cada alumno
+            int suma = 0;
+            //Recorre cada fila que representa un alumno
             for (int j = 0; j < notasAlumnos[i].length; j++) {
-                totalNotas+= notasAlumnos[i][j];
-                System.out.print(notasAlumnos[i][j]+" ");
+                int nota = notasAlumnos[i][j];
+                System.out.printf(nota+ " ");
+                //sumo la nota
+                suma += nota;
+                //Guardo si es la prueba nro 3
+                if (j==2){
+                    rendimientoTercerPrueba[i]=nota;
+                }
             }
-            int promedio = totalNotas/5;
-            System.out.printf("TOTAL: %d PROMEDIO: %d%n",totalNotas, promedio);
+            //Guardo en la lista de promedios
+            promedios[i]=suma/notasAlumnos[i].length;
+            System.out.printf("TOTAL: %d PROMEDIO: %.2f%n",suma, promedios[i]);
         }
+        int peorRendimiento = rendimientoTercerPrueba[0];
+        int alumno = 1;
+        for (int i = 1; i < rendimientoTercerPrueba.length; i++) {
+            if (rendimientoTercerPrueba[i]<peorRendimiento){
+                peorRendimiento= rendimientoTercerPrueba[i];
+                alumno= i+1;
+            }
+        }
+        System.out.printf("El alumno %d, la nota de la tercer prueba es: %d%n",alumno, rendimientoTercerPrueba[alumno-1] );
+
 
 
 
