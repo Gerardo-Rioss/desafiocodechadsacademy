@@ -16,17 +16,8 @@ public class CodeChadsAcademy {
         notas[4] = (notas[0] + notas[2] > 150) ? 95 : 70;
 
 
-
-
-
-
         //2da Parte
-        //Teniendo ya precargados los valores de las primeros 5 examenes, continua el flujo :
         //✅ 1. Verificar si aprobó todas:
-        //Una nota es aprobada si es mayor o igual a 60. Mostrar si el alumno aprobó todas, ninguna o algunas.
-        //"Resultado: Aprobaste todas. ¡Backend Sensei!"
-        //"Resultado: No aprobaste ninguna. ¡Sos un clon de frontend!"
-        //"Resultado: Algunas aprobadas. Sos un refactor en progreso."
         //TABLA PARA OBSERVAR LOS RESULTADOS
         System.out.println("******************************");
         System.out.println("RESULTADOS DE LAS PRUEBAS:");
@@ -51,16 +42,7 @@ public class CodeChadsAcademy {
         }
 
 
-
-
-
-
-
-
-
-//      ✅ 2. Prueba más inconsistente:
-//      Detectar cuál fue la mayor variación entre dos pruebas consecutivas y en qué lugar ocurrió.
-//      "Mayor salto fue de 35 puntos entre la prueba 2 y la prueba 3."
+        //✅ 2. Prueba más inconsistente:
         int mayorVariacion =notas[1]-notas[0];
         int posicionMayorVariacion = 1;
         for (int i = 2; i < notas.length; i++) {
@@ -73,16 +55,7 @@ public class CodeChadsAcademy {
         System.out.printf("Mayor salto fue de %d puntos entre la prueba %d y la prueba %d%n.",mayorVariacion,(posicionMayorVariacion), posicionMayorVariacion+1);
 
 
-
-
-
-
-
-
-
-//        3. Bonus por progreso:
-//        Si el alumno mejora su nota en cada prueba respecto a la anterior, mostrar:
-//        "¡Nivel PROGRESIVO! Sos un Stone Chad en crecimiento 📈"
+        //3. Bonus por progreso:
         System.out.println("=====================================================================");
         int notaAnterior = notas[0];
         for (int i =1;i< notas.length;i++ ) {
@@ -94,12 +67,7 @@ public class CodeChadsAcademy {
         }
 
 
-
-
-
-
-
-//        ✅ 4. Mostrar notas ordenadas (sin usar sort):
+        //✅ 4. Mostrar notas ordenadas (sin usar sort):
         for (int i = 0; i < notas.length - 1; i++) {
             int posMayor = i;
             for (int j = i + 1; j < notas.length; j++) {
@@ -114,29 +82,14 @@ public class CodeChadsAcademy {
         }
 
 
-
-
-
-
-// Mostrar ordenadas
+        // Mostrar ordenadas
         System.out.println("=====================================================================");
         System.out.println("NOTAS ORDENADAS DE MAYOR A MENOR");
         for (int i = 0; i < notas.length; i++) {
             System.out.printf("Nota %d%n", notas[i]);
         }
 
-
-
-
-
-
-
-//        ✅ 5. Evaluación final por nivel
-//        Según el total acumulado, mostrar un rango personalizado:
-//        Total < 250 → "Normie total 😢"
-//        250–349 → "Soft Chad"
-//        350–449 → "Chad"
-//        450+ → "Stone Chad definitivo 💪"
+        //✅ 5. Evaluación final por nivel
         int total =0;
         for ( int nota: notas){
             total+=nota;
@@ -152,18 +105,7 @@ public class CodeChadsAcademy {
             System.out.printf("Stone Chad definitivo, su total es: %d%n", total);
         }
 
-
-
-
-
-
-
-
-//        6. (Desafío final) Ranking entre varios alumnos
-//        Simulá una clase con 4 estudiantes, cada uno con sus 5 notas. Mostrá:
-//        Qué estudiante obtuvo el promedio más alto
-//        Cuál fue el más regular (menor desviación entre notas).
-//                Quién tuvo el peor rendimiento en la tercera prueba.
+        // 6. (Desafío final) Ranking entre varios alumnos
         System.out.println("=====================================================================");
         int[][] notasAlumnos = {
                 {90, 70, 90, 70, 95},   // Alumno 1
@@ -171,9 +113,6 @@ public class CodeChadsAcademy {
                 {100, 95, 90, 85, 100}, // Alumno 3
                 {60, 65, 70, 60, 55}    // Alumno 4
         };
-
-
-
 
         double [] promedios = new double[4];
         int [] desviaciones = new int[4];
@@ -184,6 +123,7 @@ public class CodeChadsAcademy {
             int suma = 0;
             int max =0;
             int min =100;
+
             for (int j = 0; j < notasAlumnos[i].length; j++) {
                 int nota = notasAlumnos[i][j];
                 System.out.printf(nota+ " ");
@@ -197,8 +137,8 @@ public class CodeChadsAcademy {
                 if (j==2){
                     rendimientoTercerPrueba[i]=nota;
                 }
-
             }
+
             desviaciones[i]= max-min;
             promedios[i]=suma/notasAlumnos[i].length;
             System.out.printf("TOTAL: %d PROMEDIO: %.2f%n",suma, promedios[i]);
@@ -229,19 +169,5 @@ public class CodeChadsAcademy {
             }
         }
         System.out.printf("El alumno %d, la nota de la tercer prueba es: %d%n",alumno, rendimientoTercerPrueba[alumno-1] );
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
 }
