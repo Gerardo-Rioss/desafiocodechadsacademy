@@ -7,9 +7,9 @@ public class CodeChadsAcademy {
 //      Si fue mayor a 60 entonces la nota 4 será igual a la nota 2.
 //      Si la suma de las notas 1 y 3 supera 150, la nota 5 será 95, sino 70.
         int[] notas = new int[5];
-        notas[0] = 20;
-        notas[1] = 30;
-        notas[2] = 60;
+        notas[0] = 70;
+        notas[1] = 10;
+        notas[2] = 90;
         //Nota 4
         notas[3]= notas[1]<60?100:notas[1];
         //Nota 5
@@ -92,7 +92,32 @@ public class CodeChadsAcademy {
             System.out.printf("Nota %d%n", notas[i]);
         }
 
-
+//        ✅ 5. Evaluación final por nivel
+//        Según el total acumulado, mostrar un rango personalizado:
+//        Total < 250 → "Normie total 😢"
+//        250–349 → "Soft Chad"
+//        350–449 → "Chad"
+//        450+ → "Stone Chad definitivo 💪"
+        int total =0;
+        for ( int nota: notas){
+            total+=nota;
+        }
+        System.out.println("=====================================================================");
+        if (total<250){
+            System.out.printf("Normie total, su total es: %d%n", total);
+        } else if (total>=250 & total<=349) {
+            System.out.printf("Soft Chad, su total es: %d%n", total);
+        } else if (total>=350 & total<=449) {
+            System.out.printf("Chad, su total es: %d%n", total);
+        }else {
+            System.out.printf("Stone Chad definitivo, su total es: %d%n", total);
+        }
 
     }
+
+
+
+
+
+
 }
