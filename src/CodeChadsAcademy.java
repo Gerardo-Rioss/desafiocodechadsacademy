@@ -7,12 +7,11 @@ public class CodeChadsAcademy {
 //      Si fue mayor a 60 entonces la nota 4 será igual a la nota 2.
 //      Si la suma de las notas 1 y 3 supera 150, la nota 5 será 95, sino 70.
         int[] notas = new int[5];
-        notas[0] = 50;
-        notas[1] = 70;
+        notas[0] = 20;
+        notas[1] = 30;
         notas[2] = 60;
         //Nota 4
         notas[3]= notas[1]<60?100:notas[1];
-        //if (notas[1] < 60) notas[3] = 100;
         //Nota 5
         notas[4] = (notas[0] + notas[2] > 150) ? 95 : 70;
 
@@ -23,14 +22,11 @@ public class CodeChadsAcademy {
 //      "Resultado: Aprobaste todas. ¡Backend Sensei!"
 //      "Resultado: No aprobaste ninguna. ¡Sos un clon de frontend!"
 //      "Resultado: Algunas aprobadas. Sos un refactor en progreso."
-        int aprobadas = 0;
-        int desaprobadas = 0;
-
+        //TABLA PARA OBSERVAR LOS RESULTADOS
         System.out.println("******************************");
         System.out.println("RESULTADOS DE LAS PRUEBAS:");
-
-
-
+        int aprobadas = 0;
+        int desaprobadas = 0;
         for (int i =0;i< notas.length;i++ ) {
             if (notas[i] >= 60) {
                 aprobadas++;
@@ -48,6 +44,54 @@ public class CodeChadsAcademy {
         } else {
             System.out.println("Resultado: Algunas aprobadas. Sos un refactor en progreso.");
         }
+
+//      ✅ 2. Prueba más inconsistente:
+//      Detectar cuál fue la mayor variación entre dos pruebas consecutivas y en qué lugar ocurrió.
+//      "Mayor salto fue de 35 puntos entre la prueba 2 y la prueba 3."
+        int mayorVariacion =notas[1]-notas[0];
+        int posicionMayorVariacion = 1;
+        for (int i = 2; i < notas.length; i++) {
+            int variacionActual =notas[i]-notas[i-1];
+            if (variacionActual>mayorVariacion){
+                mayorVariacion= variacionActual;
+                posicionMayorVariacion=i;
+            }
+        }
+        System.out.printf("Mayor salto fue de %d puntos entre la prueba %d y la prueba %d%n.",mayorVariacion,(posicionMayorVariacion), posicionMayorVariacion+1);
+
+//        3. Bonus por progreso:
+//        Si el alumno mejora su nota en cada prueba respecto a la anterior, mostrar:
+//        "¡Nivel PROGRESIVO! Sos un Stone Chad en crecimiento 📈"
+        System.out.println("=====================================================================");
+        int notaAnterior = notas[0];
+        for (int i =1;i< notas.length;i++ ) {
+            if (notas[i]> notaAnterior){
+                System.out.printf("Mejoraste tu nota en la prueba %d%n",(i+1) );
+                System.out.println("¡Nivel PROGRESIVO! Sos un Stone Chad en crecimiento 📈");
+            }
+            notaAnterior= notas[i];
+        }
+
+//        ✅ 4. Mostrar notas ordenadas (sin usar sort):
+        for (int i = 0; i < notas.length - 1; i++) {
+            int posMayor = i;
+            for (int j = i + 1; j < notas.length; j++) {
+                if (notas[j] > notas[posMayor]) {
+                    posMayor = j;
+                }
+            }
+            // Intercambiar
+            int temp = notas[i];
+            notas[i] = notas[posMayor];
+            notas[posMayor] = temp;
+        }
+// Mostrar ordenadas
+        System.out.println("=====================================================================");
+        System.out.println("NOTAS ORDENADAS DE MAYOR A MENOR");
+        for (int i = 0; i < notas.length; i++) {
+            System.out.printf("Nota %d%n", notas[i]);
+        }
+
 
 
     }
