@@ -4,15 +4,17 @@ public class CodeChadsAcademy {
 //      1era Parte
 //      El estudiante debe rendir 5 exámenes. Los primeros 3 puntajes ya están disponibles, pero los dos últimos se deben calcular automáticamente:
 //      Si la nota 2 fue menor a 60, la nota 4 será 100 (porque hizo un trabajo práctico extra).
+//      Si fue mayor a 60 entonces la nota 4 será igual a la nota 2.
 //      Si la suma de las notas 1 y 3 supera 150, la nota 5 será 95, sino 70.
-        int[] pruebas = new int[5];
-        pruebas[0] = 50;
-        pruebas[1] = 70;
-        pruebas[2] = 60;
+        int[] notas = new int[5];
+        notas[0] = 50;
+        notas[1] = 70;
+        notas[2] = 60;
         //Nota 4
-        if (pruebas[1] < 60) pruebas[3] = 100;
+        notas[3]= notas[1]<60?100:notas[1];
+        //if (notas[1] < 60) notas[3] = 100;
         //Nota 5
-        pruebas[4] = (pruebas[0] + pruebas[2] == 150) ? 95 : 70;
+        notas[4] = (notas[0] + notas[2] > 150) ? 95 : 70;
 
 //      2da Parte
 //      Teniendo ya precargados los valores de las primeros 5 examenes, continua el flujo :
@@ -24,17 +26,20 @@ public class CodeChadsAcademy {
         int aprobadas = 0;
         int desaprobadas = 0;
 
-        System.out.println("***************");
-        System.out.println("NOTAS:");
-        for (int prueba : pruebas) {
-            if (prueba >= 60) {
+        System.out.println("******************************");
+        System.out.println("RESULTADOS DE LAS PRUEBAS:");
+
+
+
+        for (int i =0;i< notas.length;i++ ) {
+            if (notas[i] >= 60) {
                 aprobadas++;
             } else {
                 desaprobadas++;
             }
-            System.out.println(prueba);
+            System.out.printf("Nota %d: %d%n", (i + 1), notas[i]);
         }
-        System.out.println("***************");
+        System.out.println("******************************");
 
         if (aprobadas == 5) {
             System.out.println("Resultado: Aprobaste todas. ¡Backend Sensei!");
