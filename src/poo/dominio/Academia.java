@@ -27,6 +27,35 @@ public class Academia {
         }
         return mejor;
     }
+    
+    // 6.2: Cuál fue el más regular (menor desviación entre notas)
+    public Estudiante obtenerMasRegular(){
+        Estudiante masRegular = null;
+        int menorRango = Integer.MAX_VALUE;
+
+        for (Estudiante est: estudiantes){
+            int [] notas = est.getNotas();
+            int max = notas[0];
+            int min = notas[0];
+            for (int i = 1; i < notas.length ; i++) {
+                if(notas[i]>max){
+                    max= notas[i];
+                }
+                if(notas[i]<min){
+                    min= notas[i];
+                }
+            }
+            int rango = max-min;
+            if(rango<menorRango){
+                menorRango= rango;
+                masRegular= est;
+            }
+        }
+        return masRegular;
+
+    }
+    
+    
 
 
 
