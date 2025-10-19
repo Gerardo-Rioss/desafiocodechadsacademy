@@ -71,7 +71,7 @@ public class EvaluadorEstudiante {
             notas[i] = notas[posMayor];
             notas[posMayor] = temp;
         }
-        return "Las notas ordenas de mayor a menor quedaria: " + Arrays.toString(notas);
+        return Arrays.toString(notas);
     }
 
     // 5. Evaluacion Final
