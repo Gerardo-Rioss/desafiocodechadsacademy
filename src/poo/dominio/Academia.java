@@ -54,6 +54,21 @@ public class Academia {
         return masRegular;
 
     }
+
+    // 6.3: Quién tuvo el peor rendimiento en la tercera prueba
+    public Estudiante obtenerPeorTercero(){
+        Estudiante peor = null;
+        int menorNota = Integer.MAX_VALUE;
+
+        for (Estudiante est: estudiantes){
+            int notaTercera = est.getNotas()[2];
+            if(notaTercera<menorNota){
+                menorNota= notaTercera;
+                peor= est;
+            }
+        }
+        return peor;
+    }
     
     
 
