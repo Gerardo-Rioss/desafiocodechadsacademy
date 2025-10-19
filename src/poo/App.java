@@ -1,6 +1,7 @@
 package poo;
 
 import poo.dominio.Estudiante;
+import poo.dominio.EvaluadorEstudiante;
 
 public class App {
     public static void main(String[] args) {
@@ -13,6 +14,10 @@ public class App {
         e2.calcularNotasRestantes();
         e3.calcularNotasRestantes();
         e4.calcularNotasRestantes();
+
+        e1.imprimirNotas();
+        System.out.println(EvaluadorEstudiante.evaluarAprobacion(e1));
+        System.out.println(EvaluadorEstudiante.calcularVariacion(e1));
 
 
     }

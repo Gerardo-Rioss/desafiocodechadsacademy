@@ -1,6 +1,7 @@
 package poo.dominio;
-//Verificar si aprobó todas, ninguna o algunas
+
 public class EvaluadorEstudiante {
+    // 1. Verificar si aprobó todas, ninguna o algunas
     public static String evaluarAprobacion(Estudiante estudiante){
         int [] notas = estudiante.getNotas();
         int aprobadas = 0;
@@ -19,7 +20,7 @@ public class EvaluadorEstudiante {
         }
     }
 
-    //Prueba mas inconsistente
+    // 2. Prueba mas inconsistente
     public static String calcularVariacion(Estudiante estudiante){
         int [] notas = estudiante.getNotas();
         int maxVariacion= 0;
@@ -34,6 +35,24 @@ public class EvaluadorEstudiante {
         return "El Mayor salto fué de "+ maxVariacion+" puntos entre la prueba "+ (indice+1)+" y la prueba "+(indice+2)+".";
 
     }
+
+    // 3. Bonus por Progreso
+    public static String verificarProgreso(Estudiante estudiante){
+        int [] notas = estudiante.getNotas();
+        boolean mejora = true;
+        for (int i = 0; i < notas.length; i++) {
+            if (notas[i]>= notas[i+1]){
+                mejora=false;
+                break;
+            }
+        }
+        if (mejora){
+            return "¡Nivel PROGRESIVO! Sos un Stone Chad en crecimiento 📈";
+        }else {
+            return "";
+        }
+    }
+
 }
 
 

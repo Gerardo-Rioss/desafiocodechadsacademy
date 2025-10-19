@@ -6,6 +6,7 @@ public class Estudiante {
 
     public Estudiante(String nombre, int nota1, int nota2, int nota3) {
         this.nombre = nombre;
+        this.notas= new int[5];
         this.notas[0] = nota1;
         this.notas[1] = nota2;
         this.notas[2] = nota3;
@@ -42,6 +43,17 @@ public class Estudiante {
             suma+=nota;
         }
                 return suma/5.0;
+    }
+
+    public void imprimirNotas(){
+        System.out.println("==================================");
+        System.out.println("Notas del estudiante: "+nombre );
+        System.out.println("Nº 1: "+notas[0]);
+        System.out.println("Nº 2: "+notas[1]);
+        System.out.println("Nº 3: "+notas[2]);
+        System.out.println("Nº 4: "+notas[3]);
+        System.out.println("Nº 5: "+notas[4]);
+        System.out.println("==================================");
     }
 
 }
