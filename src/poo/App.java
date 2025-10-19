@@ -18,6 +18,7 @@ public class App {
         e1.imprimirNotas();
         System.out.println(EvaluadorEstudiante.evaluarAprobacion(e1));
         System.out.println(EvaluadorEstudiante.calcularVariacion(e1));
+        System.out.println(EvaluadorEstudiante.ordenarNotas(e1));
 
 
     }

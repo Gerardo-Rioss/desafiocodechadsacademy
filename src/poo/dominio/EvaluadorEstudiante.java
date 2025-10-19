@@ -1,5 +1,8 @@
 package poo.dominio;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class EvaluadorEstudiante {
     // 1. Verificar si aprobó todas, ninguna o algunas
     public static String evaluarAprobacion(Estudiante estudiante){
@@ -52,6 +55,47 @@ public class EvaluadorEstudiante {
             return "";
         }
     }
+
+    // 4. Mostrar notas ordenadas
+    public static String ordenarNotas(Estudiante estudiante){
+        int [] notas = estudiante.getNotas();
+        for (int i = 0; i < notas.length - 1; i++) {
+            int posMayor = i;
+            for (int j = i + 1; j < notas.length; j++) {
+                if (notas[j] > notas[posMayor]) {
+                    posMayor = j;
+                }
+            }
+            // Intercambiar
+            int temp = notas[i];
+            notas[i] = notas[posMayor];
+            notas[posMayor] = temp;
+        }
+        return "Las notas ordenas de mayor a menor quedaria: " + Arrays.toString(notas);
+    }
+
+    // 5. Evaluacion Final
+    public static String evaluarNivel(Estudiante estudiante){
+        int[] notas = estudiante.getNotas();
+        int total=0;
+        for(int nota: notas){
+            total+= nota;
+        }
+
+        if (total<250){
+            return "Normie total 😢";
+        } else if (total>=250 & total<=349) {
+            return "Soft Chad";
+        } else if (total>=350 & total<=449) {
+            return "Chad";
+        }else {
+            return "Stone Chad definitivo 💪";
+        }
+
+    }
+
+
+
 
 }
 
