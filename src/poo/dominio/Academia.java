@@ -70,7 +70,12 @@ public class Academia {
         return peor;
     }
     
-    
+    public void mostrarRanking(){
+        System.out.println("===RANKING DE LA ACADEMIA===");
+        System.out.println("Estudiante con mayor promedio: "+obtenerMejorPromedio().getNombre());
+        System.out.println("Estudiante mas regular: "+ obtenerMasRegular().getNombre());
+        System.out.println("Estudiante con peor rendimiento en la tercer prueba: "+ obtenerPeorTercero().getNombre());
+    }
 
 
 

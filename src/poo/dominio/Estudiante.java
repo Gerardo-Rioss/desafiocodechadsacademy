@@ -45,15 +45,6 @@ public class Estudiante {
                 return suma/5.0;
     }
 
-    public void imprimirNotas(){
-        System.out.println("==================================");
-        System.out.println("Notas del estudiante: "+nombre );
-        System.out.println("Nº 1: "+notas[0]);
-        System.out.println("Nº 2: "+notas[1]);
-        System.out.println("Nº 3: "+notas[2]);
-        System.out.println("Nº 4: "+notas[3]);
-        System.out.println("Nº 5: "+notas[4]);
-        System.out.println("==================================");
-    }
+
 
 }
